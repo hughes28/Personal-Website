@@ -1,5 +1,3 @@
-"use strict";
-
 class App extends React.Component{
 	render(){
 		return (
@@ -9,4 +7,4 @@ class App extends React.Component{
 	}
 }
 
-ReactDOM.render(<App />, document.getElementById(‘App’));
+ReactDOM.render(<App />, document.getElementById("App"));
