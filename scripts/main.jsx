@@ -28,7 +28,7 @@ class App extends React.Component{
 		}
 		return (
 		<div>
-			<NavBar navbarListItemClicked={this.navbarListItemClicked}/>
+			<NavBar navbarListItemClicked={this.navbarListItemClicked} activeComponent={this.state.selectedNavBarItem}/>
 			{componentToShow}
 		</div>
 
@@ -39,15 +39,22 @@ class App extends React.Component{
 
 class NavBar extends React.Component{
 	render(){
-		return (
-			<div>
-				<ul>
+		let topButton = "";
+		if (this.props.activeComponent !== "Home") {
+			topButton = <button onClick={() => {}} className="navbar-top-button">Top</button>;
+		}
+		return ( 
+			<div className="navbar">
+				{topButton}
+				<h3 className="navbar-my-name">John F. Hughes</h3>
+				<ul className="horizontal-nav-ul">
 					<li onClick={() => this.props.navbarListItemClicked("Home")}>Home</li>
 					<li onClick={() => this.props.navbarListItemClicked("About")}>About</li>
 					<li onClick={() => this.props.navbarListItemClicked("Education")}>Education</li>
 					<li onClick={() => this.props.navbarListItemClicked("WorkExperience")}>Work Experience</li>
 				</ul>
 			</div>
+
 
 		);
 	}
@@ -57,8 +64,13 @@ class Home extends React.Component{
 	render(){
 		return (
 			<div>
-				<h1>Hello World!</h1>
-				<h2>My name is John Hughes.</h2>
+				<h1 className="home-title-name">John F. Hughes</h1>
+				<h2 className="home-subtitle-about">Mad Chemist | Coffee Aficionado | Difference-Maker</h2>
+				<ul className="horizontal-ul home-social-btns">
+               		<li><a href="https://github.com/hughes28"><i className="fa fa-github"></i></a></li>
+              		<li><a href="http://www.linkedin.com/in/johnfhughes"><i className="fa fa-linkedin"></i></a></li>
+              		<li><a href="./Files/HughesResume.pdf"><i className="fa fa-id-badge"></i></a></li>
+           		</ul>
 			</div>
 		);
 	}
