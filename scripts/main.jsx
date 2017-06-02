@@ -5,7 +5,7 @@ class App extends React.Component{
 		this.navbarListItemClicked = this.navbarListItemClicked.bind(this);
 	}
 	navbarListItemClicked(item){
-		this.setState({selectedNavBarItem: item}) 
+		this.setState({selectedNavBarItem: item})
 	}
 	render(){
 		let componentToShow;
@@ -43,12 +43,12 @@ class NavBar extends React.Component{
 		if (this.props.activeComponent !== "Home") {
 			topButton = <button onClick={() => {}} className="navbar-top-button">JFH</button>;
 		}
-		return ( 
+		return (
 			<div className="navbar">
 				{topButton}
 				<h3 className="navbar-spacer"></h3>
 				<ul className="horizontal-nav-ul">
-					<li onClick={() => this.props.navbarListItemClicked("Home")}>Home</li>
+					<li onMouseLeave={(e) => {e.target.className = "normal slide-out";}} onMouseEnter={(e) => {e.target.className = "active slide-in";}} onClick={() => this.props.navbarListItemClicked("Home")}>Home</li>
 					<li onClick={() => this.props.navbarListItemClicked("About")}>About</li>
 					<li onClick={() => this.props.navbarListItemClicked("Education")}>Education</li>
 					<li onClick={() => this.props.navbarListItemClicked("WorkExperience")}>Work Experience</li>
