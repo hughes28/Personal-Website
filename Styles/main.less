@@ -32,6 +32,7 @@ body {
 	display: flex;
 	flex-direction: row;
 	height: 3.5em;
+    overflow-y: visible;
 }
 .home-title-name {
 	font-family: "Nexa Light";
@@ -58,40 +59,55 @@ body {
 	position: relative;
 	text-align: center;
 	&:after{
-		content: " ";
-		top: 0;
-		position: absolute;
-		width: 100%;
+        background-color: #8860D0;
+        box-shadow: 0px 2px 12px 0px #2E0677;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        border-width: 0px 1px 1px 1px;
+        border-style: solid;
+        border-color: black;
+        content: " ";
+        display: block;
+        height: 30px;
+        margin-left: -1px;
+        top: 0;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
 	}
 
-	&.slide-in{
-		.keyframes(slide-in;{
-			0%{top: 0px;}
-			100%{top: 3.4em;}
-		});
+	&.slide-in {
+        &:after{
+            .keyframes(slide-in;{
+                0%{top: 0;}
+                100%{top: 3.4em;}
+            });
+            .animation(slide-in 0.3s ease-out)
+        }
 	}
+
+	&.slide-out {
+        &:after{
+            .keyframes(slide-out;{
+                0%{top: 3.4em;}
+                100%{top: 0;}
+            });
+            .animation(slide-out 0.3s ease-out)
+        }
+	}
+
+    &.normal{
+        &:after {
+            top: 0;
+        }
+    }
 
 	&.active{
 		&:after{
-			content: ' ';
-			height: 30px;
-			background-color: #8860D0;
-			width: 100%;
-			display: block;
-			position: absolute;
-			border-bottom-left-radius: 50px;
-			border-bottom-right-radius: 50px;
-			border-width: 0px 1px 1px 1px;
-			border-style: solid;
-			border-color: black;
-			margin-left: -1px;
-			box-shadow: 0px 2px 12px 0px #2E0677;
-			z-index: -1;
+            top: 3.4em;
 		}
-		border-bottom-width: 0;
 	}
 
-	
 }
 .navbar-top-button {
 	height: 100%;
@@ -103,4 +119,5 @@ body {
 	border-bottom-color: black;
 	border-bottom-style: solid;
 	border-bottom-width: 1px;
+    background-color: white;
 }
