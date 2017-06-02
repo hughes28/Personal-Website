@@ -29,7 +29,7 @@ class App extends React.Component{
 		return (
 		<div>
 			<NavBar navbarListItemClicked={this.navbarListItemClicked} activeComponent={this.state.selectedNavBarItem}/>
-			{componentToShow}
+			<div className="app-body">{componentToShow}</div>
 		</div>
 
 		);
@@ -41,12 +41,12 @@ class NavBar extends React.Component{
 	render(){
 		let topButton = "";
 		if (this.props.activeComponent !== "Home") {
-			topButton = <button onClick={() => {}} className="navbar-top-button">Top</button>;
+			topButton = <button onClick={() => {}} className="navbar-top-button">JFH</button>;
 		}
 		return ( 
 			<div className="navbar">
 				{topButton}
-				<h3 className="navbar-my-name">John F. Hughes</h3>
+				<h3 className="navbar-spacer"></h3>
 				<ul className="horizontal-nav-ul">
 					<li onClick={() => this.props.navbarListItemClicked("Home")}>Home</li>
 					<li onClick={() => this.props.navbarListItemClicked("About")}>About</li>
