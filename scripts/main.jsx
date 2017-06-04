@@ -63,7 +63,7 @@ class NavBar extends React.Component{
 class Home extends React.Component{
 	render(){
 		return (
-			<div>
+			<div className="home-component">
 				<h1 className="home-title-name">John F. Hughes</h1>
 				<h2 className="home-subtitle-about">Mad Chemist | Coffee Aficionado | Difference-Maker</h2>
 				<ul className="horizontal-ul home-social-btns">
