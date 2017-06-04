@@ -3,7 +3,8 @@
 @aqua: #5AB9EA;
 @lavander: #C1C8E4;
 @eggplant: #8860D0;
-@purple: #9580ff;
+@lavander: #9580ff;
+@shadow-purple: #2E0677;
 
 .keyframes(@name; @arguments) {
     @-moz-keyframes @name { @arguments(); }
@@ -24,13 +25,43 @@
 }
 
 .keyframes(slide-in;{
-    0%{top: -2em;}
-    100%{top: 1em;}
+    0%{
+        top: -2em;
+        box-shadow: none;
+    }
+    100%{
+        top: 1em;
+        box-shadow: 0px 2px 12px 0px @shadow-purple;
+    }
+});
+
+.keyframes(pop-out;{
+    0%{
+        box-shadow: none;
+    }
+    100%{
+        box-shadow: 0px 9px 12px -12px @shadow-purple;
+    }
+});
+
+.keyframes(embed-in;{
+    0%{
+        box-shadow: 0px 9px 12px -12px @shadow-purple;
+    }
+    100%{
+        box-shadow: none;
+    }
 });
 
 .keyframes(slide-out;{
-    0%{top: 1em;}
-    100%{top: -2em;}
+    0%{
+        top: 1em;
+        box-shadow: 0px 2px 12px 0px @shadow-purple;
+    }
+    100%{
+        top: -2em;
+        box-shadow: none;
+    }
 });
 
 html {
@@ -64,7 +95,7 @@ body {
     flex-direction: row;
     height: 3.5em;
     overflow-y: visible;
-    box-shadow: 0px 18px 38px @purple;
+    box-shadow: 0px 18px 38px @lavander;
     position: relative;
     z-index: 10;
 }
@@ -116,43 +147,38 @@ body {
     }
 }
 
-
-        /*
-        border-bottom-left-radius: 50px;
-        border-bottom-right-radius: 50px;
-        border-width: 0px 1px 1px 1px;
-        border-style: solid;
-        border-color: white;
-        */
-
 .horizontal-nav-ul > li {
     &.slide-in {
         &:after{
             .animation(slide-in 0.3s ease-out)
         }
+        .animation(pop-out 0.3s ease-out)
     }
 
     &.slide-out {
         &:after{
             .animation(slide-out 0.3s ease-out)
         }
+        .animation(embed-in 0.3s ease-out)
     }
 
     &.normal{
+        box-shadow: none;
         &:after {
             top: -2em;
         }
     }
 
     &.active{
+        box-shadow: 0px 9px 12px -12px @shadow-purple;
         &:after{
             top: 1em;
         }
     }
 
     &:after{
-        background-color: @teal;
-        box-shadow: 0px 2px 12px 0px #2E0677;
+        background-color: @lavander;
+        box-shadow: 0px 2px 12px 0px @shadow-purple;
         content: " ";
         display: block;
         left: 50%;
@@ -169,7 +195,7 @@ body {
 
 .horizontal-nav-ul > li, .navbar-top-button {
     align-items: center;
-    background-color: @teal;
+    background-color: @lavander;
     border-color: white;
     border-style: solid;
     border-width: 0;
@@ -192,6 +218,6 @@ body {
     border-bottom-color: white;
     border-bottom-style: solid;
     border-bottom-width: 0px;
-    background-color: @purple;
+    background-color: @lavander;
     z-index: 5;
 }
