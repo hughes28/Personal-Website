@@ -49,9 +49,9 @@ class NavBar extends React.Component{
 				<h3 className="navbar-spacer"></h3>
 				<ul className="horizontal-nav-ul">
 					<li onMouseLeave={(e) => {e.target.className = "normal slide-out";}} onMouseEnter={(e) => {e.target.className = "active slide-in";}} onClick={() => this.props.navbarListItemClicked("Home")}>Home</li>
-					<li onClick={() => this.props.navbarListItemClicked("About")}>About</li>
-					<li onClick={() => this.props.navbarListItemClicked("Education")}>Education</li>
-					<li onClick={() => this.props.navbarListItemClicked("WorkExperience")}>Work Experience</li>
+					<li onMouseLeave={(e) => {e.target.className = "normal slide-out";}} onMouseEnter={(e) => {e.target.className = "active slide-in";}} onClick={() => this.props.navbarListItemClicked("About")}>About</li>
+					<li onMouseLeave={(e) => {e.target.className = "normal slide-out";}} onMouseEnter={(e) => {e.target.className = "active slide-in";}} onClick={() => this.props.navbarListItemClicked("Education")}>Education</li>
+					<li onMouseLeave={(e) => {e.target.className = "normal slide-out";}} onMouseEnter={(e) => {e.target.className = "active slide-in";}} onClick={() => this.props.navbarListItemClicked("WorkExperience")}>Work Experience</li>
 				</ul>
 			</div>
 
