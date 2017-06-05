@@ -19,7 +19,7 @@ class App extends React.Component{
 			case "Education":
 				componentToShow = <Education />;
 				break;
-			case "WorkExperience":
+			case "Experience":
 				componentToShow = <WorkExperience />;
 				break;
 			default:
@@ -48,14 +48,29 @@ class NavBar extends React.Component{
 				{topButton}
 				<h3 className="navbar-spacer"></h3>
 				<ul className="horizontal-nav-ul">
-					<li onMouseLeave={(e) => {e.target.className = "normal slide-out";}} onMouseEnter={(e) => {e.target.className = "active slide-in";}} onClick={() => this.props.navbarListItemClicked("Home")}>Home</li>
-					<li onMouseLeave={(e) => {e.target.className = "normal slide-out";}} onMouseEnter={(e) => {e.target.className = "active slide-in";}} onClick={() => this.props.navbarListItemClicked("About")}>About</li>
-					<li onMouseLeave={(e) => {e.target.className = "normal slide-out";}} onMouseEnter={(e) => {e.target.className = "active slide-in";}} onClick={() => this.props.navbarListItemClicked("Education")}>Education</li>
-					<li onMouseLeave={(e) => {e.target.className = "normal slide-out";}} onMouseEnter={(e) => {e.target.className = "active slide-in";}} onClick={() => this.props.navbarListItemClicked("WorkExperience")}>Work Experience</li>
+					<NavBarListItem text="Home" componentID="Home" itemClicked={this.props.navbarListItemClicked} currentActiveComponent={this.props.activeComponent}/>
+					<NavBarListItem text="About" componentID="About" itemClicked={this.props.navbarListItemClicked} currentActiveComponent={this.props.activeComponent}/>
+					<NavBarListItem text="Education" componentID="Education" itemClicked={this.props.navbarListItemClicked} currentActiveComponent={this.props.activeComponent}/>
+					<NavBarListItem text="Experience" componentID="Experience" itemClicked={this.props.navbarListItemClicked} currentActiveComponent={this.props.activeComponent}/>
+				
 				</ul>
 			</div>
 
 
+		);
+	}
+}
+
+class NavBarListItem extends React.Component{
+	render(){
+		return (
+			<li 
+				onMouseLeave={(e) => {e.target.className = `normal slide-out ${this.props.currentActiveComponent === this.props.componentID ? "active" : ""}`;}} 
+				onMouseEnter={(e) => {e.target.className = `highlighted slide-in ${this.props.currentActiveComponent === this.props.componentID ? "active" : ""}`;}}
+				onClick={() => this.props.itemClicked(this.props.componentID)}
+			>
+				{this.props.text}
+			</li>
 		);
 	}
 }
