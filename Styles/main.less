@@ -3,172 +3,221 @@
 @aqua: #5AB9EA;
 @lavander: #C1C8E4;
 @eggplant: #8860D0;
+@lavander: #9580ff;
+@shadow-purple: #2E0677;
 
 .keyframes(@name; @arguments) {
-	@-moz-keyframes @name { @arguments(); }
-	@-webkit-keyframes @name { @arguments(); }
-	@keyframes @name { @arguments(); }
+    @-moz-keyframes @name { @arguments(); }
+    @-webkit-keyframes @name { @arguments(); }
+    @keyframes @name { @arguments(); }
 }
 
 .animation(@arguments) {
-	-webkit-animation: @arguments;
-	-moz-animation: @arguments;
-	animation: @arguments;
+    -webkit-animation: @arguments;
+    -moz-animation: @arguments;
+    animation: @arguments;
 }
 
 @font-face {
-	font-family: "Nexa Light";
-	font-weight: 300;
-	src: url("../fonts/Nexa-Light.otf");
+    font-family: "Nexa Light";
+    font-weight: 300;
+    src: url("../fonts/Nexa-Light.otf");
 }
 
+.keyframes(slide-in;{
+    0%{
+        top: -2em;
+        box-shadow: none;
+    }
+    100%{
+        top: 1em;
+        box-shadow: 0px 2px 12px 0px @shadow-purple;
+    }
+});
+
+.keyframes(pop-out;{
+    0%{
+        box-shadow: none;
+    }
+    100%{
+        box-shadow: 0px 9px 12px -12px @shadow-purple;
+    }
+});
+
+.keyframes(embed-in;{
+    0%{
+        box-shadow: 0px 9px 12px -12px @shadow-purple;
+    }
+    100%{
+        box-shadow: none;
+    }
+});
+
+.keyframes(slide-out;{
+    0%{
+        top: 1em;
+        box-shadow: 0px 2px 12px 0px @shadow-purple;
+    }
+    100%{
+        top: -2em;
+        box-shadow: none;
+    }
+});
+
 html {
-	height: 100%!important;
+    height: 100%!important;
 }
 
 body {
-	font-family: "Nexa Light";
-	margin: 0;
-	height: 100%!important;
-	min-height: 100%;
+    color: black;
+    font-family: "Nexa Light";
+    margin: 0;
+    height: 100%!important;
+    min-height: 100%;
 }
 
 #App {
-	height: 100%!important;
+    height: 100%!important;
 }
 
 [data-reactroot]{
-	height: 100%!important;
+    height: 100%!important;
 }
 
 .app-body{
-	background-color: @teal;
-	height: 100%!important;
-	z-index: -2;
-	position: relative;
+    background-color: @lavander;
+    height: 100%!important;
+    z-index: 1;
+    position: relative;
 }
 .navbar{
-	display: flex;
-	flex-direction: row;
-	height: 3.5em;
-	overflow-y: visible;
-	box-shadow: 0px 18px 38px #2E0677;
+    display: flex;
+    flex-direction: row;
+    height: 3.5em;
+    overflow-y: visible;
+    box-shadow: 0px 18px 38px @lavander;
+    position: relative;
+    z-index: 10;
 }
 .home-title-name {
-	font-family: "Nexa Light";
-	font-size: 6em;
-	padding: 0%;
-	display: inline-flex;
-	margin: auto;
-	flex: 2;
-	align-items: flex-end;
+    align-items: flex-end;
+    align-self: center;
+    display: inline-flex;
+    flex: 2;
+    font-family: "Nexa Light";
+    font-size: 6em;
+    margin: auto;
+    padding: 0%;
 }
 
 .home-component {
-	display: flex;
-	flex-direction: column;
-	height: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .home-subtitle-about {
-	margin: 1em auto auto auto;
+    margin: 1em auto auto auto;
+    align-self: center;
 }
 
 .horizontal-nav-ul {
-	display: table;
-	height: 100%;
-	list-style-type: none; /* deletes bullets */
-	margin: 0;
-	padding: 0;
-	z-index: 3;
+    display: inline-table;
+    height: 100%;
+    list-style-type: none; /* deletes bullets */
+    margin: 0;
+    padding: 0;
+    z-index: 3;
 }
 
 .home-social-btns {
-	display: inline-flex;
-	align-self: center;
-	list-style: none;
-	flex: 2;
+    display: inline-flex;
+    align-self: center;
+    list-style: none;
+    flex: 2;
 
-	li {
-		font-size: 3em;
-		margin: 1em 1em;
+    li {
+        font-size: 3em;
+        margin: 1em 1em;
+        a {
+            &:hover {
+                color: @royal-blue;
+            }
+        }
+    }
+}
 
-	}
+.horizontal-nav-ul > li {
+    &.slide-in {
+        &:after{
+            .animation(slide-in 0.3s ease-out)
+        }
+        .animation(pop-out 0.3s ease-out)
+    }
+
+    &.slide-out {
+        &:after{
+            .animation(slide-out 0.3s ease-out)
+        }
+        .animation(embed-in 0.3s ease-out)
+    }
+
+    &.normal{
+        box-shadow: none;
+        &:after {
+            top: -2em;
+        }
+    }
+
+    &.active{
+        box-shadow: 0px 9px 12px -12px @shadow-purple;
+        &:after{
+            top: 1em;
+        }
+    }
+
+    &:after{
+        background-color: @lavander;
+        box-shadow: 0px 2px 12px 0px @shadow-purple;
+        content: " ";
+        display: block;
+        left: 50%;
+        margin-left: -1em;
+        top: -2em;
+        transform-origin: 0% 100%;
+        transform: rotate(45deg);
+        position: absolute;
+        width: 2em;
+        height: 2em;
+        z-index: -1;
+    }
 }
 
 .horizontal-nav-ul > li, .navbar-top-button {
-	background-color: @eggplant;
-	border-color: black;
-	border-style: solid;
-	border-width: 0px 0px 0px 1px;
-	color: white;
-	cursor: pointer;
-	display: table-cell;
-	min-width: 150px;
-	padding: 1em 0;
-	position: relative;
-	text-align: center;
-	&:after{
-		background-color: #8860D0;
-		box-shadow: 0px 2px 12px 0px #2E0677;
-		border-bottom-left-radius: 50px;
-		border-bottom-right-radius: 50px;
-		border-width: 0px 1px 1px 1px;
-		border-style: solid;
-		border-color: black;
-		content: " ";
-		display: block;
-		height: 30px;
-		margin-left: -1px;
-		top: 0;
-		position: absolute;
-		width: 100%;
-		z-index: -1;
-	}
-
-	&.slide-in {
-		&:after{
-			.keyframes(slide-in;{
-				0%{top: 0;}
-				100%{top: 3.4em;}
-				});
-			.animation(slide-in 0.3s ease-out)
-		}
-	}
-
-	&.slide-out {
-		&:after{
-			.keyframes(slide-out;{
-				0%{top: 3.4em;}
-				100%{top: 0;}
-				});
-			.animation(slide-out 0.3s ease-out)
-		}
-	}
-
-	&.normal{
-		&:after {
-			top: 0;
-		}
-	}
-
-	&.active{
-		&:after{
-			top: 3.4em;
-		}
-	}
-
+    align-items: center;
+    background-color: @lavander;
+    border-color: white;
+    border-style: solid;
+    border-width: 0;
+    cursor: pointer;
+    display: inline-flex;
+    min-width: 150px;
+    position: relative;
+    height: 100%;
+    justify-content: center;
 }
+
 .navbar-top-button {
-	height: 100%;
+    height: 100%;
 }
+
 .navbar-spacer {
-	flex-grow: 1;
-	height: 100%;
-	margin: 0;
-	border-bottom-color: black;
-	border-bottom-style: solid;
-	border-bottom-width: 0px;
-	background-color: @aqua;
-	z-index: 5;
+    flex-grow: 1;
+    height: 100%;
+    margin: 0;
+    border-bottom-color: white;
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+    background-color: @lavander;
+    z-index: 5;
 }
