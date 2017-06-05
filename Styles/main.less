@@ -1,10 +1,10 @@
 @royal-blue: #5680E9;
 @teal: #84CEEB;
 @aqua: #5AB9EA;
-@lavander: #C1C8E4;
+@lavender: #C1C8E4;
 @eggplant: #8860D0;
-@lavander: #9580ff;
 @shadow-purple: #2E0677;
+@dark-blue-black: #0F141E;
 
 .keyframes(@name; @arguments) {
     @-moz-keyframes @name { @arguments(); }
@@ -31,7 +31,7 @@
     }
     100%{
         top: 1em;
-        box-shadow: 0px 2px 12px 0px @shadow-purple;
+        box-shadow: 0px 2px 12px 0px white;
     }
 });
 
@@ -40,13 +40,13 @@
         box-shadow: none;
     }
     100%{
-        box-shadow: 0px 9px 12px -12px @shadow-purple;
+        box-shadow: 0px 9px 12px -12px white;
     }
 });
 
 .keyframes(embed-in;{
     0%{
-        box-shadow: 0px 9px 12px -12px @shadow-purple;
+        box-shadow: 0px 9px 12px -12px white;
     }
     100%{
         box-shadow: none;
@@ -56,7 +56,7 @@
 .keyframes(slide-out;{
     0%{
         top: 1em;
-        box-shadow: 0px 2px 12px 0px @shadow-purple;
+        box-shadow: 0px 2px 12px 0px white;
     }
     100%{
         top: -2em;
@@ -69,7 +69,6 @@ html {
 }
 
 body {
-    color: black;
     font-family: "Nexa Light";
     margin: 0;
     height: 100%!important;
@@ -85,19 +84,21 @@ body {
 }
 
 .app-body{
-    background-color: @lavander;
+    background-color: @dark-blue-black;
     height: 100%!important;
     z-index: 1;
     position: relative;
+    color: white;
 }
 .navbar{
     display: flex;
     flex-direction: row;
     height: 3.5em;
     overflow-y: visible;
-    box-shadow: 0px 18px 38px @lavander;
     position: relative;
     z-index: 10;
+    background-color: @dark-blue-black;
+
 }
 .home-title-name {
     align-items: flex-end;
@@ -140,8 +141,9 @@ body {
         font-size: 3em;
         margin: 1em 1em;
         a {
+        	color: white;
             &:hover {
-                color: @royal-blue;
+                color: @lavender;
             }
         }
     }
@@ -170,15 +172,15 @@ body {
     }
 
     &.active{
-        box-shadow: 0px 9px 12px -12px @shadow-purple;
+        box-shadow: 0px 9px 12px -12px white;
         &:after{
             top: 1em;
         }
     }
 
     &:after{
-        background-color: @lavander;
-        box-shadow: 0px 2px 12px 0px @shadow-purple;
+        background-color: white;
+        box-shadow: 0px 2px 12px 0px white;
         content: " ";
         display: block;
         left: 50%;
@@ -195,12 +197,11 @@ body {
 
 .horizontal-nav-ul > li, .navbar-top-button {
     align-items: center;
-    background-color: @lavander;
-    border-color: white;
-    border-style: solid;
-    border-width: 0;
+    background-color: @dark-blue-black;
+    color: white;
     cursor: pointer;
     display: inline-flex;
+    line-height: 3.5em;
     min-width: 150px;
     position: relative;
     height: 100%;
@@ -215,9 +216,5 @@ body {
     flex-grow: 1;
     height: 100%;
     margin: 0;
-    border-bottom-color: white;
-    border-bottom-style: solid;
-    border-bottom-width: 0px;
-    background-color: @lavander;
     z-index: 5;
 }
