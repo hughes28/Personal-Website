@@ -18,6 +18,12 @@
     animation: @arguments;
 }
 
+.transition(@arguments) {
+    -webkit-transition: @arguments;
+    -moz-transition: @arguments;
+    transition: @arguments;
+}
+
 @font-face {
     font-family: "Nexa Light";
     font-weight: 300;
@@ -197,6 +203,7 @@ body {
     }
 
     &.active{
+    	text-decoration: underline;
     	.animation(navbar-glow 1.0s ease-out infinite)
     }
 
@@ -233,6 +240,14 @@ body {
 
 .navbar-top-button {
     height: 100%;
+    border: none;
+    .transition(color 0.1s);
+    .transition(background-color 0.1s);
+
+    &:hover{
+    	background-color: white;
+    	color: @dark-blue-black;
+    }
 }
 
 .navbar-spacer {

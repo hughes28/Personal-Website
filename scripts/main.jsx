@@ -41,7 +41,7 @@ class NavBar extends React.Component{
 	render(){
 		let topButton = "";
 		if (this.props.activeComponent !== "Home") {
-			topButton = <button onClick={() => {}} className="navbar-top-button">JFH</button>;
+			topButton = <a onClick={() => {}} className="navbar-top-button">JFH</a>;
 		}
 		return (
 			<div className="navbar">
