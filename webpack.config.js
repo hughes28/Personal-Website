@@ -6,42 +6,27 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   inject: 'body'
 })
 const webpack = require('webpack');
+const APP_DIR = path.resolve(__dirname, '/client');
 module.exports = {
-	context: path.join(__dirname, './client'),
 	entry: {
-		html: './index.html',
-		jsx: './index.js',
-		js: './index.js',
 		vendor: [
-		'react',
-		'react-dom'
-		]
+		'react-dom',
+		'react'
+		],
+		bundle: './client/index.js',
 	},
 	resolve: {
 		extensions: ['.js', '.jsx']
 	},
 	output : {
 		path: path.resolve('dist'),
-		filename: 'bundle.js',
+		filename: '[name].js',
 	},
-	module: {
-		loaders: [
-		{
-			test: /\.html$/,
-			exclude: /node_modules/,
-			loader: 'file?name=[name].[ext]'
-		},
-		{
-			test: /\.(js|jsx)$/,
-			exclude: /node_modules/,
-			loaders: [
-			'babel-loader'
-			]
-		}
-		],
-	},
-	externals: {
-		"react-dom": 'ReactDOM',
+    module: {
+        loaders: [
+            { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+            { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
+        ]
 	},
 	plugins: [HtmlWebpackPluginConfig]
 };
