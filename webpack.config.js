@@ -20,7 +20,7 @@ module.exports = {
 		extensions: ['.js', '.jsx', '.less']
 	},
 	output : {
-		path: path.resolve('dist'),
+		path: path.resolve('docs'),
 		filename: '[name].js',
 	},
     module: {
