@@ -1,11 +1,12 @@
 import React from 'react';
+import meirl from '../Assets/meirl.jpg';
 
 export default class About extends React.Component{
 	render(){
 		return (
 			<div className="about-component">
 				<div className="portrait-container">
-					<img src="./Assets/meirl.jpg" alt="portrait"/>
+					<img src={meirl} alt="portrait"/>
 				</div>
 				<h1>About Me</h1>
 				<div className="about-body">

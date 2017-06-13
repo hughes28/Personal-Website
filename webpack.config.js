@@ -7,6 +7,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 })
 const webpack = require('webpack');
 const APP_DIR = path.resolve(__dirname, '/client');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
 	entry: {
 		vendor: [
@@ -16,7 +17,7 @@ module.exports = {
 		bundle: './client/index.js',
 	},
 	resolve: {
-		extensions: ['.js', '.jsx']
+		extensions: ['.js', '.jsx', '.less']
 	},
 	output : {
 		path: path.resolve('dist'),
@@ -25,8 +26,13 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-            { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
-        ]
-	},
-	plugins: [HtmlWebpackPluginConfig]
+            { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
+            { test: /\.less$/, loader: 'style-loader!css-loader!less-loader' },
+            { test: /\.(jpeg|jpg|png|woff|woff2|eot|ttf|svg|otf)$/, loader: 'url-loader?limit=100000', exclude: /node_modules/},
+        ],
+    },
+    plugins: [
+        HtmlWebpackPluginConfig,
+        new ExtractTextPlugin( "bundle.css" ),
+    ]
 };
