@@ -2,12 +2,74 @@ import React from 'react';
 
 export default class Education extends React.Component{
 	render(){
+		const gradCourses = ["Advanced Carrier Injection Devices", "Evaluation of Microelectronic Manufacturing", "Lithographic Materials and Processes",
+								"Microelectromechanical Systems Evaluation", "Microelectronic Fabrication", "Physical Modeling of Semiconductor Devices", 
+								"Semiconductor Process Integration", "Thin Films"];
+		const gradCourseListItems=[];
+		const undergradCourses = ["Analysis of Multiscale Processes", "Fluid Mechanics", "Heat Transfer",
+											"Multiple Scale Material Science", "Reaction Engineering"];
+		const undergradCourseListItems=[];
+		gradCourses.forEach((course, i) => {gradCourseListItems.push(<li key={i}>{course}</li>)});
+		undergradCourses.forEach((course, i) => {undergradCourseListItems.push(<li key={i}>{course}</li>)});
 		return (
 			<div>
 				<h1>Education</h1>
+				<img src="http://www.cis.rit.edu/~sxs4643/RIT_logo.png" alt=""/>
+				<h2>Rochester Institute of Technology - Rochester, NY</h2>
 				<ul>
-					<li><h3>M.Sc, Microelectronic Engineering, RIT</h3></li>
-					<li><h3>B.Sc, Chemical Engineering, RIT</h3></li>
+					<li>
+						<h2>M.Sc, Microelectronic Engineering (August 2015 - August 2017)</h2>
+						<h4>3.81 / 4.00 GPA</h4>
+						<h4>Thesis Topic: Sensitivity Enhancement of Metal-Oxide Chemical Sensors</h4>
+						<ul>
+							<li>
+								Developed fabrication process consisting of lift-off processing, physical vapor
+								deposition (PVD), thermal processing, and other process modules for prototype 
+								metal-oxide chemical sensors which sense volatile organic compounds (VOCs).
+							</li>
+							<li>
+								Electrically and thermally simulated future-work devices using Silvaco Atlas and Solidworks,
+								respectively.
+							</li>
+							<li>
+								Studied the effects of analyte concentration, metal-oxide thickness, crystalline structure,
+								and operational temperature on sensitivity to VOCs.
+							</li>
+						</ul>
+						<h4>Leadership:</h4>
+						<ul>
+							<li>
+								RIT New Student Orientation
+							</li>
+							<li>
+								Alpha Phi Omega
+							</li>
+							<li>
+								Graduate Teaching Assistant
+							</li>
+						</ul>
+						<h4>Relevant Course Work:</h4>
+						<ul>{gradCourseListItems}</ul>
+					</li>
+					<li>
+						<h2>B.Sc, Chemical Engineering (September 2010 - May 2015)</h2>
+						<h4>3.40 / 4.00 GPA</h4>
+						<h4>Leadership:</h4>
+						<ul>
+							<li>
+								RIT Improv
+							</li>
+							<li>
+								American Institute of Chemical Engineers
+							</li>
+							<li>
+								RIT New Student Orientation
+							</li>
+						</ul>
+						<h4>Relevant Course Work:</h4>
+						<ul>{undergradCourseListItems}</ul>
+					</li>
+				
 				</ul>
 			</div>
 		);
