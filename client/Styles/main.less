@@ -260,7 +260,8 @@ body {
     z-index: 5;
 }
 
-.about-component {
+
+.about-component, .education-component {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -279,11 +280,32 @@ body {
 		}
 	}
 
+    .rit-logo {
+        margin-top: 7em;
+    }
+
+    .location-container {
+
+        display: flex;
+
+        .blip-icon {
+            width: 25px;
+            height: 25px;
+        }
+
+        h3 {
+            margin: 0;
+            margin-left: 5px;   
+
+        }
+        
+    }
+
 	h1 {
 		font-size: 3em;
 	}
 
-	.about-body {
+	.about-body, .education-body {
 		margin: 0 2em;
 		max-width: 1260px;
 		font-size: 1.4em;
@@ -294,6 +316,36 @@ body {
             line-height: 1.2em;
         }
 	}
+
+    .education-body {
+        list-style: none;
+
+        .education-degree-container {
+            display: flex;
+
+            h2 {
+                flex: 5;
+            }
+
+            
+
+            
+            .education-degree-information {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: right;
+
+                h6, h5 {
+                    margin: 0;
+                }
+
+
+            }
+
+        }
+    }
+
 
 }
 

@@ -12,14 +12,22 @@ export default class Education extends React.Component{
 		gradCourses.forEach((course, i) => {gradCourseListItems.push(<li key={i}>{course}</li>)});
 		undergradCourses.forEach((course, i) => {undergradCourseListItems.push(<li key={i}>{course}</li>)});
 		return (
-			<div>
+			<div className="education-component">
+				<img className="rit-logo" src="http://www.cis.rit.edu/~sxs4643/RIT_logo.png" alt=""/>
 				<h1>Education</h1>
-				<img src="http://www.cis.rit.edu/~sxs4643/RIT_logo.png" alt=""/>
-				<h2>Rochester Institute of Technology - Rochester, NY</h2>
-				<ul>
+				<div className="location-container">
+					<img className="blip-icon" src="http://www.iconsdb.com/icons/preview/soylent-red/map-marker-2-xxl.png" alt=""/>
+					<h3>Rochester Institute of Technology - Rochester, NY</h3>
+				</div>
+				<ul className="education-body">
 					<li>
-						<h2>M.Sc, Microelectronic Engineering (August 2015 - August 2017)</h2>
-						<h4>3.81 / 4.00 GPA</h4>
+						<div className="education-degree-container">
+							<h2>M.Sc, Microelectronic Engineering</h2>
+							<div className="education-degree-information">
+								<h6>08/2015 - 08/2017</h6>
+								<h5>3.81/4.00 GPA</h5>
+							</div>
+						</div>
 						<h4>Thesis Topic: Sensitivity Enhancement of Metal-Oxide Chemical Sensors</h4>
 						<ul>
 							<li>
@@ -52,8 +60,13 @@ export default class Education extends React.Component{
 						<ul>{gradCourseListItems}</ul>
 					</li>
 					<li>
-						<h2>B.Sc, Chemical Engineering (September 2010 - May 2015)</h2>
-						<h4>3.40 / 4.00 GPA</h4>
+						<div className="education-degree-container">
+							<h2>B.Sc, Chemical Engineering</h2>
+							<div className="education-degree-information">
+								<h6>09/2010 - 05/2015</h6>
+								<h5>3.40/4.00 GPA</h5>
+							</div>
+						</div>
 						<h4>Leadership:</h4>
 						<ul>
 							<li>
