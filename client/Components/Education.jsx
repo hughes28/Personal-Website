@@ -1,4 +1,5 @@
 import React from 'react';
+import blipicon from '../Assets/blipicon.png';
 
 export default class Education extends React.Component{
 	render(){
@@ -16,11 +17,11 @@ export default class Education extends React.Component{
 				<img className="rit-logo" src="http://www.cis.rit.edu/~sxs4643/RIT_logo.png" alt=""/>
 				<h1>Education</h1>
 				<div className="location-container">
-					<img className="blip-icon" src="http://www.iconsdb.com/icons/preview/soylent-red/map-marker-2-xxl.png" alt=""/>
+					<img className="blip-icon" src={blipicon} alt=""/>
 					<h3>Rochester Institute of Technology - Rochester, NY</h3>
 				</div>
 				<ul className="education-body">
-					<li>
+					<li className="education-entry">
 						<div className="education-degree-container">
 							<h2>M.Sc, Microelectronic Engineering</h2>
 							<div className="education-degree-information">
@@ -59,7 +60,7 @@ export default class Education extends React.Component{
 						<h4>Relevant Course Work:</h4>
 						<ul>{gradCourseListItems}</ul>
 					</li>
-					<li>
+					<li className="education-entry">
 						<div className="education-degree-container">
 							<h2>B.Sc, Chemical Engineering</h2>
 							<div className="education-degree-information">

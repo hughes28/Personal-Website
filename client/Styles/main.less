@@ -255,9 +255,11 @@ body {
 
 .navbar-spacer {
     flex-grow: 1;
-    height: 100%;
+    height: 67px;
     margin: 0;
     z-index: 5;
+    background-color: @dark-blue-black;
+
 }
 
 
@@ -295,7 +297,8 @@ body {
 
         h3 {
             margin: 0;
-            margin-left: 5px;   
+            margin-left: 5px; 
+            margin-bottom: 2em;  
 
         }
         
@@ -319,6 +322,25 @@ body {
 
     .education-body {
         list-style: none;
+        letter-spacing: 1px;
+        line-height: 1.2em;
+
+        .education-entry {
+
+            padding-left: 1em;
+            padding-right: 1em;
+            border-top: white;
+            border-top-width: 1px;
+            border-top-style: solid;
+            margin-bottom: 1.5em;
+
+            h4 {
+
+                text-decoration: underline;
+
+            }
+
+        }
 
         .education-degree-container {
             display: flex;
