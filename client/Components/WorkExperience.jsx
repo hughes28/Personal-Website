@@ -10,6 +10,9 @@ export default class WorkExperience extends React.Component{
 	render(){
 		return (
 			<div className="experience-component">
+				<h1 className="component-title">Experience</h1>
+				<div className="title-separator">
+				</div>
 				<div className="card-front">
 					<h1>
 						Northrop Grumman Corporation
@@ -22,9 +25,13 @@ export default class WorkExperience extends React.Component{
 						<div className="company-logo">
 							<img src={NGCSmallLogo} alt=""/>
 						</div>
+						<div className="separator-line">
+						</div>
 						<div className="company-information">
-							<h3>Technical Engineer Intern</h3>
-							<h3>05/2016 - 08/2016</h3>
+							<div className="company-job-title">
+								<h2>Technical Engineer Intern</h2>
+								<h3>05/2016 - 08/2016</h3>
+							</div>
 							<h4>
 								Completed a technical engineering internship on the Advanced Technology Laboratory Process 			
 								Integration team, focused on developing electronics for radar/computational applications.
@@ -61,9 +68,13 @@ export default class WorkExperience extends React.Component{
 						<div className="company-logo">
 							<img src={HarrisCorporation} alt=""/>
 						</div>
+						<div className="separator-line">
+						</div>
 						<div className="company-information">
-							<h3>Manufacturing Engineer Intern</h3>
-							<h3>06/2015 - 08/2015</h3>
+							<div className="company-job-title">
+								<h2>Manufacturing Engineer Intern</h2>
+								<h3>06/2015 - 08/2015</h3>
+							</div>
 							<h4>
 								Completed a manufacturing engineering internship on the Analytical Instrumentation team, which 
 								develops sensitive piezoelectric sensors/detectors for mass spectroscopy units.
@@ -93,9 +104,13 @@ export default class WorkExperience extends React.Component{
 						<div className="company-logo">
 							<img src={VolvoSmall} alt=""/>
 						</div>
+						<div className="separator-line">
+						</div>
 						<div className="company-information">
-							<h3>Manufacturing Engineer Co-op</h3>
-							<h3>01/2014 - 07/2014</h3>
+							<div className="company-job-title">
+								<h2>Manufacturing Engineer Co-op</h2>
+								<h3>01/2014 - 07/2014</h3>
+							</div>
 							<h4>
 								Completed a manufacturing engineering co-op on the Group Trucks Operations (GTO) industrial entity 
 								in Hagerstown, which focuses on manufacturing domestic and international diesel engines.
@@ -125,9 +140,13 @@ export default class WorkExperience extends React.Component{
 						<div className="company-logo">
 							<img src={URCSmall} alt=""/>
 						</div>
+						<div className="separator-line">
+						</div>
 						<div  className="company-information">
-							<h3>Process Engineer Co-op</h3>
-							<h3>03/2013 - 08/2013</h3>
+							<div className="company-job-title">
+								<h2>Process Engineer Co-op</h2>
+								<h3>03/2013 - 08/2013</h3>
+							</div>
 							<h4>
 								Completed a process engineering co-op in the Process Engineering department of a small refinery which 
 								processes nearly 70,000 barrels of oil per day, seven days a week.
