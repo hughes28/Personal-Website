@@ -1,4 +1,5 @@
 import React from 'react';
+import resume from "../Files/HughesResume.pdf";
 
 export default class Home extends React.Component{
 	render(){
@@ -9,7 +10,7 @@ export default class Home extends React.Component{
 				<ul className="home-social-btns">
                		<li><a href="https://github.com/hughes28"><i className="fa fa-github"></i></a></li>
               		<li><a href="http://www.linkedin.com/in/johnfhughes"><i className="fa fa-linkedin"></i></a></li>
-              		<li><a href="./Files/HughesResume.pdf"><i className="fa fa-id-badge"></i></a></li>
+              		<li><a href={resume}><i className="fa fa-id-badge"></i></a></li>
            		</ul>
 			</div>
 		);
