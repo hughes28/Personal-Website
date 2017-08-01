@@ -5,6 +5,7 @@ import About from './About';
 import Home from './Home';
 import Education from './Education';
 import WorkExperience from './WorkExperience';
+import Widgets from './Widgets';
 
 export default class App extends React.Component{
 	constructor(props){
@@ -29,6 +30,9 @@ export default class App extends React.Component{
 				break;
 			case "Experience":
 				componentToShow = <WorkExperience />;
+				break;
+			case "Widgets":
+				componentToShow = <Widgets />;
 				break;
 			default:
 				componentToShow = <Home />;
