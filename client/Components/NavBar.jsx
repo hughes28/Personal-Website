@@ -16,7 +16,7 @@ export default class NavBar extends React.Component{
 					<NavBarListItem text="About" componentID="About" itemClicked={this.props.navbarListItemClicked} currentActiveComponent={this.props.activeComponent}/>
 					<NavBarListItem text="Education" componentID="Education" itemClicked={this.props.navbarListItemClicked} currentActiveComponent={this.props.activeComponent}/>
 					<NavBarListItem text="Experience" componentID="Experience" itemClicked={this.props.navbarListItemClicked} currentActiveComponent={this.props.activeComponent}/>
-
+					<NavBarListItem text="Widgets" componentID="Widgets" itemClicked={this.props.navbarListItemClicked} currentActiveComponent={this.props.activeComponent}/>
 				</ul>
 			</div>
 
