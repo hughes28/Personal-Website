@@ -28,6 +28,7 @@ module.exports = {
             { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
             { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
             { test: /\.less$/, loader: 'style-loader!css-loader!less-loader' },
+            { test: /\.css$/, loader: 'style-loader!css-loader!' },
             { test: /\.(jpeg|jpg|png|pdf|woff|woff2|eot|ttf|svg|otf)$/, loader: 'url-loader?limit=100000', exclude: /node_modules/},
         ],
     },
