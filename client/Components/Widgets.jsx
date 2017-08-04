@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Weather from './Weather';
+import LongTweetSplit from './LongTweetSplit';
 
 export default class Widgets extends React.Component{
 	constructor() {
@@ -8,6 +9,11 @@ export default class Widgets extends React.Component{
 		this.state = {loading: true};
 	}
 	render(){
-		return <Weather/>;
+		return (
+			<div>
+				<Weather/>
+				<LongTweetSplit/>
+			</div>
+		);
 	}
 }

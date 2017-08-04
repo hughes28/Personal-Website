@@ -26,11 +26,11 @@
     "axios": "^0.16.2",
     "browser": "^0.2.6",
     "browser-js": "^1.10.1",
-    "i": "^0.3.5",
     "marked": "^0.3.6",
     "path": "^0.12.7",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-toggle-button": "^2.1.0",
     "require": "^2.4.20"
   },
   "devDependencies": {
