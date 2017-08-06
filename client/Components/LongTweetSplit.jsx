@@ -22,7 +22,8 @@ export default class LongTweetSplit extends React.Component{
 	getMessage() {
 		let message = this.state.message;
 		const maxTweetLength = 140;
-		const addedLength = 6;
+		const numberOfTweetsRequired = Math.ceil(message.length/maxTweetLength);
+		const addedLength = 2*numberOfTweetsRequired.toString().length + 4;
 		const result = [];
 		let newMessage = "";
 		let numberOfTweets = 0;
