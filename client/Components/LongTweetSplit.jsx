@@ -7,7 +7,7 @@ export default class LongTweetSplit extends React.Component{
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.getMessage = this.getMessage.bind(this);
-		this.state = {message: ""};
+		this.state = {message: "", splitTweets: []};
 	}
 
 	handleChange(event) {
@@ -24,8 +24,7 @@ export default class LongTweetSplit extends React.Component{
 		const maxTweetLength = 140;
 		const numberOfTweetsRequired = Math.ceil(message.length/maxTweetLength);
 		const addedLength = 2*numberOfTweetsRequired.toString().length + 4;
-		const result = [];
-		let newMessage = "";
+		const splitTweets = [];
 		let numberOfTweets = 0;
 		let canContinue = true;
 
@@ -33,42 +32,42 @@ export default class LongTweetSplit extends React.Component{
 			while (message.length > maxTweetLength) {
 				for (let i = maxTweetLength - 1 - addedLength; i >= 0; i--) {
 					if (message[i] === ' ') {
-						result.push(message.substring(0,i));
-						message = message.slice(i);
-						i = maxTweetLength;
-						numberOfTweets++;	
+						splitTweets.push(message.substring(0,i));
+						message = message.slice(i);	
 						canContinue = false;
 						break;
 					}
 				}
 				if (canContinue) {
-						result.push(message.substring(0,maxTweetLength-1));
+						splitTweets.push(message.substring(0,maxTweetLength-1));
 						message = message.slice(maxTweetLength-1);
-						numberOfTweets++;
 				}
 			}
 
-			result.push(message);
-			numberOfTweets++;
+			splitTweets.push(message);
 
-			for (let j = 0; j<result.length; j++) {
+			for (let j = 0; j<splitTweets.length; j++) {
 				let tweetPage = j+1;
-				result[j] += " (" + tweetPage + "/" + numberOfTweets + ")";
+				splitTweets[j] += " (" + tweetPage + "/" + splitTweets.length + ")";
 			}
 
-			for (let s in result) {
-				newMessage += result[s];
-			}
-
-			this.setState({message: newMessage});
+			this.setState({splitTweets}); // short hand for this.setState({splitTweets: splitTweets});
 		}
-
 
 	} 
 
 	render() {
 
-		content = this.state.message;
+		let content = '';
+		const {splitTweets} = this.state; // shorthand notation for const splitTweets = this.state.splitTweets;
+
+		if (splitTweets.length > 0) {
+			content = (
+				<ul> 
+					{splitTweets.map((tweet, i) => <li key={i}>{tweet}</li>)}
+				</ul>
+			);
+		}
 
 		return (
 			<div className = "widget-component">
