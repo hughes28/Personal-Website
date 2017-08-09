@@ -23,14 +23,19 @@ export default class LongTweetSplit extends React.Component{
 		let message = this.state.message;
 		const maxTweetLength = 140;
 		const numberOfTweetsRequired = Math.ceil(message.length/maxTweetLength);
-		const addedLength = 2*numberOfTweetsRequired.toString().length + 4;
+		const paddedLength = 2*numberOfTweetsRequired.toString().length + 4;
 		const splitTweets = [];
-		let numberOfTweets = 0;
 		let canContinue = true;
+		const denominatorLength = numberOfTweetsRequired.toString().length;
 
 		if (message.length > maxTweetLength) {
 			while (message.length > maxTweetLength) {
-				for (let i = maxTweetLength - 1 - addedLength; i >= 0; i--) {
+				const numeratorLength = (splitTweets.length+1).toString().length;
+				const adjustedPaddedLength = paddedLength - (denominatorLength - numeratorLength);
+				const start = maxTweetLength - 1 - adjustedPaddedLength;
+				const finish = start - 15;
+
+				for (let i = start; i >= finish; i--) {	
 					if (message[i] === ' ') {
 						splitTweets.push(message.substring(0,i));
 						message = message.slice(i);	
@@ -39,8 +44,8 @@ export default class LongTweetSplit extends React.Component{
 					}
 				}
 				if (canContinue) {
-						splitTweets.push(message.substring(0,maxTweetLength-1));
-						message = message.slice(maxTweetLength-1);
+					splitTweets.push(message.substring(0,start));
+					message = message.slice(maxTweetLength-1);
 				}
 			}
 
